@@ -1,0 +1,479 @@
+% \iffalse
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[british]{babel}
+\usepackage{minted}
+\usepackage{menukeyz}
+\begin{document}
+\DocInput{menukeyz.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \title{Menukeyz}
+% \author{Dr Alun Moon}
+% \maketitle
+% 
+% \newminted{latex}{}
+%
+% Rough version of menukeys package due to breaking with other packages
+% 
+% \section{Installation}
+% The package comes as three files
+% \begin{enumerate}
+% \item \verb'menukeyz.dtx' --- the documentation and sources.
+% \item \verb'menukeyz.ins' --- the docstrip batch file for generating the
+% style file.
+% \item \verb'Makefile' --- a makefile for automating generation of
+% documentation and installation of the package.
+% \end{enumerate}
+%
+% \paragraph{Makefile targets}  The Makefile has the following targets
+% \begin{description}
+% \item[\texttt{all}] builds the documentation and the style file
+% \item[\texttt{doc}] builds the documentation
+% \item[\texttt{install}] builds the package and installs it into
+% \verb'$HOME/texmf/tex'
+% \end{description}
+%
+% \section{Usage}
+% The package is declared in the document preamble.
+% \iffalse
+% <*example>
+% \fi
+% \begin{latexcode}
+\usepackage{menukeyz}
+% \end{latexcode}
+% \iffalse
+% </example>
+% \fi
+%
+% \DescribeMacro{\menu} The |\menu| macro displays a menu as a series of
+% boxes, with arrow like edges to indicate sub-menus.  The boxes are styled to
+% suggest the common grey(ish) appearance of menus.
+%
+% For example the file menu can be shown by
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\menu{File}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% Which displays a single entry menu as
+% \menu{File}
+%
+% \begin{quote}
+% A dialogue box button can be shown as a single menu item,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\menu{Save}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% Which displays a single entry menu as
+% \menu{Save}
+% \end{quote}
+%
+% \paragraph{For menus and sub-menus} the menu elements are separated by
+% `\verb:>:' characters.
+%
+% The two level menu 
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\menu{File>Save As}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% is displayed as
+% \menu{File>Save As}
+%
+% There is no limit to the level of sub-menus that can be shown
+%% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\menu{Edit>Settings>Options...>Fonts}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% is displayed as
+% \menu{Edit>Settings>Options...>Fonts}
+%
+% \DescribeMacro{\keys}
+% The |\keys| macro displays a key combination sequence.
+% For example the key for the letter `A' can be shown by
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{A}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% Which is displayed as \keys{A}
+%
+% For key combinations the keys are separated by a `\verb:+:' character.
+% So to show the `A' and `B' characters combined
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{A+B}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% Which is displayed as \keys{A+B}
+%
+% \begin{quote}
+% To show the `+' key you will need to protect the \verb:+: with braces
+% (\verb:{}:), 
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{{+}}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% Which is displayed as \keys{{+}}
+% \end{quote}
+%
+% \paragraph{Special keys} Control, Shift, and other keys have some
+% convenience macros defined
+% \DescribeMacro{\Ctrl}
+% The control key,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{\Ctrl}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% which shows as \keys{\Ctrl}
+%
+% \DescribeMacro{\Alt}
+% The alt  key,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{\Alt}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% which shows as \keys{\Alt}
+%
+%
+% \DescribeMacro{\Shift}
+% The shift  key,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{\Shift}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% which shows as \keys{\Shift}
+%
+%
+% \DescribeMacro{\Delete}
+% The delete  key,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{\Delete}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% which shows as \keys{\Delete}
+%
+%
+% So the classic emergency exit is
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{\Ctrl+\Alt+\Delete}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% or \keys{\Ctrl+\Alt+\Delete}
+%
+% \paragraph{Other keys}
+% For where there isn't a shortcut macro just enclose the key name in braces,
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\keys{{Pg Up}}
+% \end{latexcode}
+% \iffalse
+%</example>
+% \fi
+% shows as \keys{{Pg Up}}
+%
+% \clearpage
+%
+% \section{Implementation}
+% \paragraph{Package declaration} states that this is the \emph{menukeyz}
+% package for \LaTeX2e
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{menukeyz}
+%    \end{macrocode}
+%
+% \paragraph{Dependencies} Uses Tikz for drawing the menus and keys.  The
+% signal shape from the symbol shapes library is the basis of displaying the
+% menu, while the  chains library handles layout.
+%    \begin{macrocode}
+\RequirePackage{tikz}
+\usetikzlibrary{chains,shapes.symbols}
+%    \end{macrocode}
+%
+% \subsection{List iteration}
+% There are several examples of list iteration about in the \TeX\ world, I
+% cribbed the core of this from somewhere.  I've renamed some of the macros
+% after the mechanisms for list iteration in \texttt{lisp} and
+% \texttt{scheme}.
+%
+% The list iteration is tightly tied to the use here, I might try to
+% generalise it later.
+%
+% \begin{macro}{\nil}
+% I need a list terminator which I can test for.
+%    \begin{macrocode}
+\def\nil{}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \paragraph{List traversal iterates down a list creating nodes as it goes.}
+% The first and last nodes in the sequence have different styles applied, to
+% there is a little hackery to label them appropriately.
+%
+% \begin{macro}{\menu@car}
+% The menu iterator runs down a `\verb:>:' separated list creating
+% nodes.  \emph{Note} arguments a \emph{not} separated by tokens as in \LaTeX\
+% macros.
+% \emph{Take note} of the terminating `\verb:>:' in the argument list.
+%    \begin{macrocode}
+\def\menu@car#1>#2>{
+%    \end{macrocode}
+% For convenience define |\@head| and |\@tail| from the argments, |\@head| is the
+% first list item, while |\@tail| is the second.
+%    \begin{macrocode}
+\edef\@head{#1}
+\edef\@tail{#2}
+%    \end{macrocode}
+% Test for the last element of the list.  The tail will be a |\nil|
+% (\textit{c.f}  lisp).
+%    \begin{macrocode}
+\ifx\@tail\empty
+%    \end{macrocode}
+% \emph{If we are at the end of the list,} define |\@last| as the `last' key for
+% applying a style to the node
+%    \begin{macrocode}
+    \def\@last{last}
+%    \end{macrocode}
+% Now make the node.  Tikz is generous enough to cope with empty options so
+% can cope with an option list starting with a comma.   Label the node M for
+% allignment (see below)
+%    \begin{macrocode}
+    \node[\@first, \@last](M){\@head};
+%    \end{macrocode}
+% \emph{If not the last node}
+%    \begin{macrocode}
+\else
+%    \end{macrocode}
+% Make the node in just the same way
+%    \begin{macrocode}
+    \node[\@first, \@last](M){\@head};
+%    \end{macrocode}
+% Now clear any value for |\@first| as we will have used it at least once.
+%    \begin{macrocode}
+    \edef\@first{}
+%    \end{macrocode}
+% \emph{The heavy lifting bit for the iteration} applies the
+% |\menu@car| iterator to the tail of the list.  The third item in the list
+% has not been read yet by \TeX\ but the comma has so we need to stick the
+% |\@tail| back on-to the list with a comma.  The |\expandafter| makes sure
+% that the token list is expanded from right to left, we build the list then
+% apply |\menu@car|.
+%    \begin{macrocode}
+    \expandafter\menu@car\expandafter\@tail\expandafter>\fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\menu}
+% Sets up a Tikz picture with a chain of nodes, styled appropriately for
+% displaying a menu.  It takes a single argument, the comma separated list of
+% menu items.
+%    \begin{macrocode}
+\newcommand{\menu}[1]{
+%    \end{macrocode}
+% We want a chain of nodes, alligned on the baseline of any text content.
+%    \begin{macrocode}
+\begin{tikzpicture}[baseline=(M.base), start chain,
+%    \end{macrocode}
+%
+% All the nodes are on the chain, with black on light-grey
+%    \begin{macrocode}
+    every node/.style={on chain,draw=black,fill=black!10,
+%    \end{macrocode}
+% The default (anything except the first and last item) uses the signal shape,
+% with the ends as arrows pointing from left to right.
+%    \begin{macrocode}
+        signal,signal to=east,signal from=west,
+%    \end{macrocode}
+% The text dimensions are set explicitly here to ensure consistent sizes for
+% the menus, regardless of the text used
+%    \begin{macrocode}
+        text height=.8em,text depth=0.2em,
+        inner sep=.1em,
+        inner xsep=.2em,
+%    \end{macrocode}
+% Use a sans-serif font for the text (most UIs seem to use sans fonts)
+%    \begin{macrocode}
+        font=\sffamily
+    },
+%    \end{macrocode}
+% The first item on the list has a square left edge (as there is no
+% preceeding menu item)
+%    \begin{macrocode}
+    first/.style={signal from=nowhere},
+%    \end{macrocode}
+% The last item on the list has a square right edge (as there is no
+% succeeding menu item)
+%    \begin{macrocode}
+    last/.style={signal to=nowhere},
+%    \end{macrocode}
+% A little spacing between nodes
+%    \begin{macrocode}
+    node distance=.1em]
+%    \end{macrocode}
+% Define the |\@first| with the text `first' to style the first menu item,
+% and define |\@last| as blank as we don't yet know if there is one item.
+% Note the double `    extgreater' that terminates the list, macro expansion and argument
+% gobbling means that |\menu@car| eventually sees an empty argument as the
+% list ternimation.
+%    \begin{macrocode}
+    \def\@first{first} \def\@last{} \menu@car #1>>\relax 
+\end{tikzpicture}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\key@combination}
+% The |\key@combination| macro iterates down a list of `\verb:+:' separated
+% characters that are the keyboard combination.
+%    \begin{macrocode}
+\def\key@combination#1+#2+{
+%    \end{macrocode}
+% There is always at least one key, so we can always use the key value to draw
+% a key.
+%    \begin{macrocode}
+    \node[key](M){#1};
+%    \end{macrocode}
+% The second parameter, possibly empty, is the subsiquent combination key
+%    \begin{macrocode}
+     \edef\@key{#2}
+%    \end{macrocode}
+% If the subsiquent key is not empty
+%    \begin{macrocode}
+     \ifx\@key\empty
+     \else
+%    \end{macrocode}
+%
+% Draw a combining `\verb:+:' to join the key symbols. 
+%    \begin{macrocode}         
+     \node[inner sep=1pt]{+};
+%    \end{macrocode}
+% \emph{The heavy lifting of tail recursion.}
+% The repeated use of |\expandafter| makes sure that the expansion of
+% |\key@combination| is immediatly followed by the rest of the key
+% combinations.
+%    \begin{macrocode}
+     \expandafter\key@combination\expandafter\@key\expandafter+\fi
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\keys}
+% Sets up a Tikz picture aligned on the baseline of the text, laid out on a
+% chain.
+%    \begin{macrocode}
+\newcommand{\keys}[1]{
+     \begin{tikzpicture}[baseline=(M.base), start chain,
+%    \end{macrocode}
+% Set the node size and font for displaying the characters.
+%    \begin{macrocode}
+         every node/.style={on chain,
+             text height=.8em, text depth=.2em,
+             font=\sffamily
+         },
+%    \end{macrocode}
+% The Key is shown as a rounded rectangle with a slightly off yellow
+% background colour.
+%    \begin{macrocode}
+          key/.style={rectangle,inner sep=0.1em,
+              minimum width=1.2em,
+              draw=black,fill=black!20!yellow!20,
+              rounded corners=.3em
+         },
+         node distance=.0em]
+%    \end{macrocode}
+% Now call the key iterator, note the double `\verb:+:' to terminate the sequence. 
+%    \begin{macrocode}
+         \key@combination #1++ ;   
+     \end{tikzpicture}
+}
+%    \end{macrocode}
+% \end{macro}
+% \paragraph{Control and other keys}  The control, shift, and other keys need
+% some macros and text defined for them.
+% \begin{macro}{\Ctrl}
+% The Control key.
+%    \begin{macrocode}
+\newcommand{\Ctrl}{Ctrl}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Alt}
+% The Alt key.
+%    \begin{macrocode}
+\newcommand{\Alt}{Alt}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Shift}
+% The Shift key.
+%    \begin{macrocode}
+\newcommand{\Shift}{Shift}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\Delete}
+% The Delete key.
+%    \begin{macrocode}
+\newcommand{\Delete}{Delete}
+%    \end{macrocode}
+% \end{macro}
+
